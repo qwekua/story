@@ -1,170 +1,173 @@
-// components/Videos.js
 import React, { useState } from 'react';
-import './Videos.css';
+import './Music.css';
 
-export const Videos = () => {
-  const [selectedVideo, setSelectedVideo] = useState(null);
-  
-  // Sample videos data
-  const videos = [
+export const Music = () => {
+  const [selectedSong, setSelectedSong] = useState(null);
+
+  // Sample songs data
+  const songs = [
     { 
       id: 1, 
-      title: "Music Video Title 1", 
-      type: "Official Music Video", 
+      title: "Song Title 1", 
+      type: "Album", 
+      album: "Album Name", 
       date: "April 2025",
-      thumbnail: "/api/placeholder/1280/720",
-      views: "1.2M"
+      thumbnail: "https://via.placeholder.com/1280x720", 
+      views: "1.2M",
+      url: "https://www.youtube.com/embed/hODzVuC5YKc"
     },
     { 
       id: 2, 
-      title: "Music Video Title 2", 
-      type: "Official Music Video", 
+      title: "Song Title 2", 
+      type: "EP", 
+      album: "EP Name", 
       date: "March 2025",
-      thumbnail: "/api/placeholder/1280/720", 
-      views: "890K"
+      thumbnail: "https://via.placeholder.com/1280x720", 
+      views: "890K",
+      url: "https://www.youtube.com/embed/hODzVuC5YKc"
     },
     { 
       id: 3, 
-      title: "Awake Short video", 
-      type: "Live", 
+      title: "Single Song Title", 
+      type: "Single", 
+      album: "Single Release", 
       date: "October 2023",
-      thumbnail: "https://www.youtube.com/shorts/2Ug6-jSbQns", 
-      views: "560K"
+      thumbnail: "https://via.placeholder.com/1280x720", 
+      views: "560K",
+      url: "https://www.youtube.com/embed/2Ug6-jSbQns"
     },
     { 
       id: 4, 
-      title: "Behind The Scenes", 
-      type: "BTS", 
+      title: "Song Title 4", 
+      type: "Album", 
+      album: "Album Name", 
       date: "January 2025",
-      thumbnail: "https://www.youtube.com/shorts/hODzVuC5YKc", 
-      views: "420K"
+      thumbnail: "https://via.placeholder.com/1280x720", 
+      views: "420K",
+      url: "https://www.youtube.com/embed/hODzVuC5YKc"
     },
     { 
       id: 5, 
-      title: "Music Video Title 3", 
-      type: "Official Music Video", 
-      date: "December 2024",
-      thumbnail: "/api/placeholder/1280/720", 
-      views: "2.1M"
-    },
-    { 
-      id: 6, 
-      title: "Interview", 
-      type: "Interview", 
-      date: "November 2024",
-      thumbnail: "/api/placeholder/1280/720", 
-      views: "310K"
+      title: "Song Title 5", 
+      type: "EP", 
+      album: "EP Name", 
+      date: "December 2022",
+      thumbnail: "https://via.placeholder.com/1280x720", 
+      views: "2.1M",
+      url: "https://www.youtube.com/embed/4pn9ZFTqhyY"
     }
   ];
-  
-  const openVideo = (video) => {
-    setSelectedVideo(video);
-    document.body.style.overflow = 'hidden';
+
+  const openSong = (song) => {
+    setSelectedSong(song);
+    document.body.style.overflow = 'hidden';  // Disable body scroll when modal is open
   };
-  
-  const closeVideo = () => {
-    setSelectedVideo(null);
-    document.body.style.overflow = 'auto';
+
+  const closeSong = () => {
+    setSelectedSong(null);
+    document.body.style.overflow = 'auto';  // Enable body scroll again when modal is closed
   };
-  
+
   return (
-    <div className="videos-page">
+    <div className="music-page">
       <div className="page-header">
         <div className="container">
-          <h1>Videos</h1>
+          <h1>Music</h1>
         </div>
       </div>
-      
+
       <div className="container">
         <section className="section">
-          <h2 className="section-title">Official Music Videos</h2>
-          <div className="videos-grid">
-            {videos.filter(v => v.type === "Official Music Video").map((video) => (
-              <div className="video-card card" key={video.id} onClick={() => openVideo(video)}>
-                <div className="video-thumbnail">
-                  <img src={video.thumbnail} alt={video.title} />
-                  <div className="video-play-overlay">
+          <h2 className="section-title">EPs</h2>
+          <div className="songs-grid">
+            {songs.filter(song => song.type === "EP").map((song) => (
+              <div className="song-card card" key={song.id} onClick={() => openSong(song)}>
+                <div className="song-thumbnail">
+                  <img src={song.thumbnail} alt={song.title} />
+                  <div className="song-play-overlay">
                     <i className="fas fa-play"></i>
                   </div>
-                  <div className="video-views">{video.views} views</div>
+                  <div className="song-views">{song.views} views</div>
                 </div>
-                <div className="video-info">
-                  <h3>{video.title}</h3>
-                  <p>{video.type} • {video.date}</p>
+                <div className="song-info">
+                  <h3>{song.title}</h3>
+                  <p>{song.album} • {song.date}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
-        
+
         <section className="section">
-          <h2 className="section-title">Live Performances</h2>
-          <div className="videos-grid">
-            {videos.filter(v => v.type === "Live").map((video) => (
-              <div className="video-card card" key={video.id} onClick={() => openVideo(video)}>
-                <div className="video-thumbnail">
-                  <img src={video.thumbnail} alt={video.title} />
-                  <div className="video-play-overlay">
+          <h2 className="section-title">Singles</h2>
+          <div className="songs-grid">
+            {songs.filter(song => song.type === "Single").map((song) => (
+              <div className="song-card card" key={song.id} onClick={() => openSong(song)}>
+                <div className="song-thumbnail">
+                  <img src={song.thumbnail} alt={song.title} />
+                  <div className="song-play-overlay">
                     <i className="fas fa-play"></i>
                   </div>
-                  <div className="video-views">{video.views} views</div>
+                  <div className="song-views">{song.views} views</div>
                 </div>
-                <div className="video-info">
-                  <h3>{video.title}</h3>
-                  <p>{video.type} • {video.date}</p>
+                <div className="song-info">
+                  <h3>{song.title}</h3>
+                  <p>{song.album} • {song.date}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
-        
+
         <section className="section">
-          <h2 className="section-title">Interviews & Behind The Scenes</h2>
-          <div className="videos-grid">
-            {videos.filter(v => v.type === "BTS" || v.type === "Interview").map((video) => (
-              <div className="video-card card" key={video.id} onClick={() => openVideo(video)}>
-                <div className="video-thumbnail">
-                  <img src={video.thumbnail} alt={video.title} />
-                  <div className="video-play-overlay">
+          <h2 className="section-title">Albums</h2>
+          <div className="songs-grid">
+            {songs.filter(song => song.type === "Album").map((song) => (
+              <div className="song-card card" key={song.id} onClick={() => openSong(song)}>
+                <div className="song-thumbnail">
+                  <img src={song.thumbnail} alt={song.title} />
+                  <div className="song-play-overlay">
                     <i className="fas fa-play"></i>
                   </div>
-                  <div className="video-views">{video.views} views</div>
+                  <div className="song-views">{song.views} views</div>
                 </div>
-                <div className="video-info">
-                  <h3>{video.title}</h3>
-                  <p>{video.type} • {video.date}</p>
+                <div className="song-info">
+                  <h3>{song.title}</h3>
+                  <p>{song.album} • {song.date}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
       </div>
-      
-      {selectedVideo && (
-        <div className="video-modal">
-          <div className="video-modal-content">
-            <button className="close-modal" onClick={closeVideo}>
+
+      {selectedSong && (
+        <div className="song-modal" onClick={closeSong}>
+          <div className="song-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={closeSong}>
               <i className="fas fa-times"></i>
             </button>
-            <div className="video-player">
-              <div className="video-placeholder">
-                <img src={selectedVideo.thumbnail} alt={selectedVideo.title} />
-                <div className="video-play-button">
-                  <i className="fas fa-play"></i>
-                </div>
-              </div>
+            <div className="song-player">
+              <iframe 
+                src={selectedSong.url} 
+                frameBorder="0" 
+                title={`${selectedSong.title} Video`}
+                allowFullScreen
+                width="100%" 
+                height="400px"
+              ></iframe>
             </div>
-            <div className="video-modal-info">
-              <h2>{selectedVideo.title}</h2>
-              <p>{selectedVideo.type} • {selectedVideo.date} • {selectedVideo.views} views</p>
-              <div className="video-modal-actions">
-                <button className="video-action-btn">
+            <div className="song-modal-info">
+              <h2>{selectedSong.title}</h2>
+              <p>{selectedSong.album} • {selectedSong.date} • {selectedSong.views} views</p>
+              <div className="song-modal-actions">
+                <button className="song-action-btn">
                   <i className="fas fa-thumbs-up"></i> Like
                 </button>
-                <button className="video-action-btn">
+                <button className="song-action-btn">
                   <i className="fas fa-share"></i> Share
                 </button>
-                <button className="video-action-btn">
+                <button className="song-action-btn">
                   <i className="fas fa-plus"></i> Save
                 </button>
               </div>
