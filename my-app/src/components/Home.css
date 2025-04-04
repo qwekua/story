@@ -1,0 +1,384 @@
+/* components/Home.css */
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background-image: url('https://media.istockphoto.com/id/2185400651/photo/rock-musicians-in-fashionable-outfits-performing-alternative-or-punk-rock-music-on-festival.jpg?s=1024x1024&w=is&k=20&c=wdsaobees3KvG6hLTgToGG3kfEYA1jVci5SU35lrddc=');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 80%;
+  padding: 20px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-buttons .btn {
+  font-size: 1rem;
+  padding: 12px 24px;
+  background-color: #8e2de2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-buttons .btn:hover {
+  background-color: #6d1b9c;
+}
+
+.hero-buttons .btn-outline {
+  background-color: transparent;
+  border: 2px solid #8e2de2;
+  color: #8e2de2;
+}
+
+.hero-buttons .btn-outline:hover {
+  background-color: #8e2de2;
+  color: white;
+}
+
+/* Featured Track Section */
+.featured-section {
+  padding: 4rem 0;
+  background-color: #4b2a2a1c;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.featured-track {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-artwork {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.track-artwork img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.track-artwork:hover img {
+  transform: scale(1.05);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(142, 45, 226, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.play-button i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.track-info h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.track-description {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.track-links {
+  margin: 2rem 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.streaming-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 12px 24px;
+  background-color: #8e2de2; /* Matches the .btn color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  letter-spacing: 1.2px; /* Slightly wider letters for a modern feel */
+}
+
+.streaming-link:hover {
+  background-color: #6d1b9c; /* Darker shade for hover effect */
+  transform: translateY(-4px); /* Subtle lift effect on hover */
+}
+
+.streaming-link i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.streaming-link:hover i {
+  transform: scale(1.2); /* Icon grows slightly on hover */
+  color: #f5f5f5; /* Icon turns light when hovered */
+}
+
+.streaming-link.btn-outline {
+  background-color: transparent;
+  border: 2px solid #8e2de2;
+  color: #8e2de2;
+}
+
+.streaming-link.btn-outline:hover {
+  background-color: #8e2de2;
+  color: white;
+}
+
+/* Added animation for smooth hover effect */
+@keyframes button-hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.streaming-link:hover {
+  animation: button-hover 0.3s ease-in-out forwards;
+}
+
+
+/* Latest Releases Section */
+.releases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjusted min-width for better fit */
+  gap: 2rem;
+  margin-top: 2rem; /* Adds some space at the top for separation */
+}
+
+.release-card {
+  height: 320px; /* Increased height for a better overall look */
+  overflow: hidden; /* Ensures content doesn't overflow */
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  border-radius: 8px; /* Slight rounded corners for better aesthetics */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.release-card:hover {
+  transform: translateY(-10px); /* Adds a hover effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Increases shadow on hover for depth */
+}
+
+.release-artwork {
+  flex-grow: 1; /* Makes sure the image container fills available space */
+  overflow: hidden; /* Ensures the image doesn't overflow */
+  position: relative;
+}
+
+.release-artwork img {
+  width: 100%; /* Ensures image takes full width of the container */
+  height: 100%; /* Ensures image fills the container's height */
+  object-fit: cover; /* Ensures image maintains aspect ratio and fills the container */
+  transition: transform 0.3s ease; /* Adds transition effect for zoom */
+}
+
+.release-artwork:hover img {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.release-info {
+  padding: 1rem; /* Adds padding to the text section */
+  background-color: #fff; /* Ensures the text is clearly visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 0; /* Ensures it doesn't take more space than necessary */
+}
+
+.release-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold; /* Makes title more prominent */
+  color: #333; /* Ensures good contrast */
+}
+
+.release-info p {
+  font-size: 0.9rem;
+  color: #888; /* Slightly lighter color for secondary text */
+  margin-bottom: 1rem;
+}
+
+.release-info .release-date {
+  font-size: 0.8rem;
+  color: #aaa; /* Lighter text for additional info */
+}
+
+/* Optional: Style the 'view more' button */
+.view-more {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-more .btn {
+  padding: 12px 24px;
+  background-color: #8e2de2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-more .btn:hover {
+  background-color: #6d1b9c;
+}
+
+
+/* Video Preview Section */
+.video-container {
+  max-width: 800px;
+
+  text-align: center;
+}
+
+.video-placeholder {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0rem;
+}
+
+.video-placeholder img {
+  width: 100%;
+  display: block;
+}
+
+
+
+.video-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-container p {
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+
+  .featured-track {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .releases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+.track-preview {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.preview-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.close-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
